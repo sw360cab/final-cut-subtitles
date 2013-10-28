@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sw360cab/final-cut-subtitles.png)](https://travis-ci.org/sw360cab/final-cut-subtitles)
+
 #FinalCut to SRT subtitles converter
 
 A simple Java library that converts subtitles from Apple FinalCut xml to SubRip (SubRip Text) a.k.a *.srt* format
