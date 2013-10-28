@@ -43,6 +43,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.minimalgap.transformer.subtitles.model.Subtitle;
 import com.minimalgap.transformer.subtitles.utils.TimeUtils;
 
+
 public class SubtilesSAXParser extends DefaultHandler {
 	private Logger logger = Logger.getLogger(this.getClass());
 
