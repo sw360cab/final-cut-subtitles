@@ -141,13 +141,19 @@ public class SubtilesSAXParser extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if(qName.equalsIgnoreCase("generatoritem")) {
 			//add it to the list
-			subtitles.add(aSubtitle);			
+			subtitles.add(aSubtitle);
+			// invalid subtitle element 
+			aSubtitle = null;
 		} else if (qName.equalsIgnoreCase("timebase")) {
 			timebase = tempVal.toString();
 		} else if (qName.equalsIgnoreCase("start")) {
-			aSubtitle.setStartTime(this.formatTime(tempVal.toString()));
+			if (aSubtitle != null) {
+				aSubtitle.setStartTime(this.formatTime(tempVal.toString()));
+			}
 		} else if (qName.equalsIgnoreCase("end")) {
-			aSubtitle.setEndTime(this.formatTime(tempVal.toString()));
+			if (aSubtitle != null) {
+				aSubtitle.setEndTime(this.formatTime(tempVal.toString()));
+			}
 		} else if (qName.equalsIgnoreCase("parameterid")) {
 			if(tempVal.toString().equalsIgnoreCase("str")){
 				textParent = true; // flag for text "value"
@@ -158,6 +164,7 @@ public class SubtilesSAXParser extends DefaultHandler {
 				textParent = false;
 			}
 		}
+		
 		tempVal = new StringBuilder();
 	}
 
